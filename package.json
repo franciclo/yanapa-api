@@ -1,5 +1,5 @@
 {
-  "name": "yanapa-api",
+  "name": "jsub-api",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/franciclo/yanapa-api.git"
+    "url": "git+https://github.com/franciclo/jsub-api.git"
   },
   "author": "",
-  "license": "GPLv3",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/franciclo/yanapa-api/issues"
+    "url": "https://github.com/franciclo/jsub-api/issues"
   },
-  "homepage": "https://github.com/franciclo/yanapa-api#readme",
+  "homepage": "https://github.com/franciclo/jsub-api#readme",
   "dependencies": {
     "cors": "^2.8.1",
     "dotenv": "^2.0.0",
@@ -23,5 +23,9 @@
     "express": "^4.14.0",
     "express-jwt": "^5.1.0",
     "mongoose": "^4.8.0"
+  },
+  "devDependencies": {
+    "migrate-mongoose": "^3.2.2",
+    "mongoose-connection-ready": "^1.0.1"
   }
 }
