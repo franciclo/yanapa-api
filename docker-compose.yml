@@ -5,16 +5,34 @@ services:
     volumes:
       - ./:/src
     ports:
-      - "7000:7000"
+      - "3000:3000"
     links:
       - mongo
       - elasticsearch
-    tty: true
   mongo:
     image: mongo
     ports:
       - "27017:27017"
     volumes:
-      - "/data/db"
+      - yanapa-mongo-data:/data/db
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:5.2.2
+    ports:
+      - 9200:9200
+    volumes:
+      - yanapa-es-data:/usr/share/elasticsearch/data
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+  mant:
+    build: ~/docker/yanapa-mant
+    volumes:
+      - yanapa-es-data:/usr/share/elasticsearch/data
+      - yanapa-mongo-data:/data/db
+    links:
+      - mongo
+      - elasticsearch
+
+volumes:
+  yanapa-es-data:
+    driver: local
+  yanapa-mongo-data:
+    driver: local
